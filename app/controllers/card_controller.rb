@@ -19,6 +19,8 @@ class CardController < ApplicationController
   end
 
   def edit
+    # ログインユーザーのカード一覧を取得
+    @lists = List.where(user: current_user)
   end
 
   def update
