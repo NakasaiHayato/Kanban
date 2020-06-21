@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   root 'top#index'
 
   resources :list, only: %i(new create edit update destroy) do
-    resources :card, only: %i(new create show edit update)
+    # index以外のアクションをルーティング
+    resources :card, except: %i(index)
   end
   resources :user, only: %i(show edit update)
 end
